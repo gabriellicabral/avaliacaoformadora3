@@ -1,152 +1,169 @@
-/* Reset básico */
-* {
+/* ================= RESET ================= */
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
-body {
+/* ================= BODY ================= */
+
+body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1);
     min-height: 100vh;
-}
-
-/* Cabeçalho */
-header {
-    background-color: #4f46e5;
-    color: white;
-    padding: 20px;
     display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-direction: column;
+    color: #333;
 }
 
-header h1 {
-    font-size: 28px;
+/* ================= HEADER ================= */
+
+header{
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Ícone */
-.icon {
-    width: 40px;
-    height: 40px;
+.icon{
+    width: 80px;
+    margin-bottom: 10px;
 }
 
-/* Conteúdo principal */
-main {
+header h1{
+    font-size: 2.2rem;
+}
+
+/* ================= MAIN ================= */
+
+main{
+    flex: 1;
     width: 90%;
-    max-width: 700px;
+    max-width: 800px;
     margin: 30px auto;
 }
 
-/* Área de criação */
-main div:first-child {
+/* ================= ÁREA DE CRIAÇÃO ================= */
+
+main div:first-child{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Textarea */
-textarea {
+/* ================= TEXTAREA ================= */
+
+textarea{
     width: 100%;
-    height: 140px;
+    min-height: 150px;
     padding: 15px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    resize: none;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
-}
-
-textarea:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
-}
-
-/* Botão adicionar */
-button {
-    padding: 12px;
     border: none;
-    border-radius: 10px;
-    background-color: #4f46e5;
+    border-radius: 15px;
+    resize: none;
+    font-size: 1rem;
+    outline: none;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ================= BOTÃO ================= */
+
+button{
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
-    background-color: #4338ca;
+button:hover{
+    transform: scale(1.03);
+    opacity: 0.9;
 }
 
-/* Lista de notas */
-#listadenotas {
+/* ================= LISTA DE NOTAS ================= */
+
+#listadenotas{
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Cada nota */
-.nota {
-    background-color: white;
+/* ================= NOTAS ================= */
+
+.nota{
+    background-color: rgba(255,255,255,0.9);
+    border-left: 8px solid #ff758c;
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    animation: aparecer 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    animation: aparecer 0.4s ease;
 }
 
-/* Texto da nota */
-.nota p {
-    flex: 1;
+.nota p{
+    font-size: 1.1rem;
+    margin-bottom: 10px;
     word-break: break-word;
-    line-height: 1.5;
 }
 
-/* Botão deletar */
-.nota button {
-    background-color: #ef4444;
-    min-width: 90px;
+.nota small{
+    color: #666;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.nota button:hover {
-    background-color: #dc2626;
+/* ================= BOTÃO DA NOTA ================= */
+
+.nota button{
+    background: linear-gradient(90deg, #ff4b5c, #ff6b81);
+    width: 100%;
 }
 
-/* Animação */
-@keyframes aparecer {
-    from {
+/* ================= FOOTER ================= */
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.15);
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* ================= ANIMAÇÃO ================= */
+
+@keyframes aparecer{
+    from{
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
 
-    to {
+    to{
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
+/* ================= RESPONSIVIDADE ================= */
 
-    .nota {
-        flex-direction: column;
-        align-items: stretch;
+@media(max-width: 600px){
+
+    header h1{
+        font-size: 1.7rem;
     }
 
-    .nota button {
-        width: 100%;
+    textarea{
+        min-height: 120px;
     }
 
-    header h1 {
-        font-size: 22px;
+    .nota{
+        padding: 15px;
     }
 }

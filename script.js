@@ -10,27 +10,37 @@ botao.onclick = function() {
         alert("Digite algo para salvar a nota!");
         return;
     }
-    notas.push(nota);
+    notas.push({
+        texto: textarea.value,
+        data: new Date().toLocaleString()
+    });
     textarea.value = "";
     mostrarNotas();
 }
 
 function mostrarNotas(){
-
+    
     listanotas.innerHTML = "";
 
-    for (let i = 0; i < notas.length; i++){
+    notas.forEach((nota, index) => {
 
         listanotas.innerHTML += `
             <div class="nota">
-                <p>${notas[i]}</p>
-                <button onclick="deletarNota(${i})">Deletar</button>
+                <p>${nota.texto}</p>
+                <small>Criado em ${nota.data}</small>
+                <button onclick="deletarNota(${index})">Deletar</button>
             </div>
         `;
-    }
+    });
 }
 
 function deletarNota(i){
+
+    const confirmacao = confirm("Tem certeza que deseja deletar esta nota?");
+
+    if (!confirmacao) {
+        return;
+    }
 
     notas.splice(i,1);
 
